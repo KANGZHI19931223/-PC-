@@ -51,3 +51,5 @@ $.fn.serializeToJson = function () {
 	})
 	return result;
 }
+
+$.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
