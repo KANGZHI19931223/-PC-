@@ -46,6 +46,51 @@ $(function () {
 
 	})
 
+	// 3 完成添加一级分类功能
+	$('#addFirstCategory').on('click', function () {
+
+		// 获取输入的数据
+		var value = $('#newFirstCategory').val();
+
+		if (!$.trim(value)) {
+
+			alert('请输入一级分类名称');
+
+			return;
+
+		}
+
+		// 发送ajax请求
+		$.ajax({
+
+			url: `${baseUrl.url}/category/addTopCategory`,
+
+			data: {
+
+				categoryName: value
+
+			},
+
+			type: 'post',
+
+			success: function (msg) {
+
+				if (msg.success) {
+
+					location.reload();
+
+				} else {
+
+					alert(msg.message);
+
+				}
+
+			}
+
+		})
+
+	})
+
 	// 请求数据
 	function getdata () {
 
